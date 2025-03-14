@@ -1,0 +1,196 @@
+h1,
+h2,
+h3.h4,
+h5 {
+  font-family: 'montserrat';
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+img {
+  border: 2px solid #ddd;
+}
+
+.container-fluid {
+  padding: 0 15px;
+}
+
+.top-bar {
+  background: #eeeeee;
+  padding-bottom: 20px;
+}
+
+.top-bar h1 {
+  font-family: 'Montserrat';
+}
+
+.top-bar .top-links ul>li {
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.nav-tabs li a {
+  color: #202020;
+}
+
+.form {
+  max-height: 300px !important;
+}
+
+.top-bar {
+  background: #fff;
+  padding: 35px 0 35px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.top-bar h1 {
+  color: #202020;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin: 0px;
+}
+
+.top-bar p {
+  color: #909090;
+  margin-bottom: 0;
+}
+
+.top-bar img {
+  float: left;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.sidebar {
+  padding-bottom: 20px;
+}
+
+p {
+  margin: 0;
+  font-size: 17px;
+}
+
+.tab-content h1 {
+  font-size: 28px;
+}
+
+.tab-content p {
+  color: #505050;
+  line-height: 25px;
+}
+
+.tab-content li {
+  margin-bottom: 10px;
+}
+
+.tab-content h2 {
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.tabs-left,
+.tabs-right {
+  padding-top: 25px !important;
+}
+
+.nav.nav-tabs.tabs-left {
+  position: fixed;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.form-links a {
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+  color: #21c2f8;
+}
+
+.nav>li>a:hover,
+.nav>li>a:focus {
+  background: #21c2f8;
+  color: #fff;
+}
+
+.nav>li>a {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-family: 'montserrat';
+}
+
+.sidebar h1 {
+  color: #21c2f8;
+}
+
+.tab-content {
+  padding: 50px;
+}
+
+ul {
+  padding-left: 15px;
+}
+
+.well {
+  border-radius: 0;
+}
+
+.theme-err {
+  color: #d44950 !important;
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+code {
+  font-size: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+.top-scroll a {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: block;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.top-scroll a i {
+  line-height: 25px;
+  font-size: 18px;
+}
+
+#quicklinks {
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+#quicklinks li {
+  list-style-type: none;
+  text-transform: capitalize !important;
+}
+
+#quicklinks li a {
+  border-bottom: 1px dotted #202020;
+  text-transform: capitalize !important;
+}
+
+#quicklinks li a:hover {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
