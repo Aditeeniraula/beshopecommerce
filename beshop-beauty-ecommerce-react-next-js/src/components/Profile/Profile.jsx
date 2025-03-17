@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { ProfileAside } from './ProfileAside/ProfileAside';
 import { ProfileOrders } from './ProfileOrders/ProfileOrders';
+import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 
 export const Profile = () => {
-  const [activeTab, setActiveTab] = useState('orders');
+  const [activeTab, setActiveTab] = useState('myInfo');
+
   return (
     <>
-      {/* <!-- BEGIN PROFILE --> */}
+    {/* <!-- BEGIN PROFILE --> */}
       <div className='profile'>
         <div className='wrapper'>
           <div className='profile-content'>
@@ -37,10 +39,7 @@ export const Profile = () => {
                 <div className='box-tab-cont'>
                   {activeTab === 'myInfo' && (
                     <div className='tab-cont' id='profile-tab_1'>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Neque quasi, sit vel exercitationem ea veniam quo
-                      asperiores corporis dignissimos quod id. Adipisci libero
-                      similique a commodi fugiat quibusdam maiores ipsa!
+                      <ProfileInfo />
                     </div>
                   )}
 
@@ -48,11 +47,7 @@ export const Profile = () => {
 
                   {activeTab === 'wishList' && (
                     <div className='tab-cont' id='profile-tab_3'>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Cumque tempore saepe blanditiis omnis. Reprehenderit
-                      officia atque facere tempora, neque quaerat et aliquid
-                      tempore mollitia, nemo, minima iste placeat cupiditate
-                      odio?
+                      <p>Your wishlist is empty.</p>
                     </div>
                   )}
                 </div>
