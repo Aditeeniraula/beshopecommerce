@@ -10,16 +10,14 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = [
-            'username', 'first_name', 'last_name', 'email',
-            'phone_number', 'password', 'confirm_password'
-        ]
+        fields = ['username', 'first_name', 'last_name', 'email',
+                  'phone_number', 'password', 'confirm_password']
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate(self, data):
         if data.get('password') != data.get('confirm_password'):
             raise serializers.ValidationError(
-                {"password": "Passwords must match"})
+                {"password": "Passwords must match."})
         return data
 
     def create(self, validated_data):
@@ -31,11 +29,21 @@ class LogInSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         email = attrs.get('email')
         password = attrs.get('password')
+
         if not email or not password:
             raise exceptions.ValidationError(
-                'Email and password are required.')
+                "Email and password are required.")
+
         user = authenticate(request=self.context.get(
             'request'), email=email, password=password)
         if not user:
-            raise exceptions.ValidationError('Invalid credentials')
+            raise exceptions.ValidationError("Invalid credentials")
+
         return super().validate(attrs)
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name',
+                  'last_name', 'phone_number']

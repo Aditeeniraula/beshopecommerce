@@ -1,8 +1,10 @@
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.views import APIView
 from django.contrib.auth import get_user_model
-from .serializers import UserRegistrationSerializer, LogInSerializer
+from .serializers import UserRegistrationSerializer, LogInSerializer, UserProfileSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 User = get_user_model()
@@ -32,6 +34,9 @@ class UserDetailView(generics.RetrieveAPIView):
         return Response({
             "username": user.username,
             "email": user.email,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "phone_number": user.phone_number
         })
 
 
@@ -39,5 +44,21 @@ class LogInView(TokenObtainPairView):
     serializer_class = LogInSerializer
 
 
-class TokenRefreshView(TokenRefreshView):
+class RefreshTokenView(TokenRefreshView):
     pass
+
+
+class UserProfileView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user
+        data = {
+            'username': user.username,
+            'email': user.email,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'phone_number': user.phone_number
+        }
+        return Response(data)
