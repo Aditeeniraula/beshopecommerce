@@ -6,6 +6,9 @@ from rest_framework.views import APIView
 from django.contrib.auth import get_user_model
 from .serializers import UserRegistrationSerializer, LogInSerializer, UserProfileSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 User = get_user_model()
 
@@ -16,11 +19,20 @@ class UserRegistrationView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        user = serializer.save()
+        self.send_welcome_email(user)
         return Response({
             'message': 'User created successfully',
             'user': serializer.data
         }, status=status.HTTP_201_CREATED)
+
+    def send_welcome_email(self, user):
+        subject = "Welcome to Beshop Beauty"
+        message = f"Hi {user.first_name},\n\nThank you for registering with us. Get your first product right away."
+        recipient = [user.email]
+
+        send_mail(subject, message, settings.EMAIL_HOST_USER,
+                  recipient, fail_silently=False)
 
 
 class UserDetailView(generics.RetrieveAPIView):

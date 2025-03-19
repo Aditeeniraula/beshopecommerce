@@ -39,9 +39,8 @@ const handleRegistration = async (e) => {
 
     if (response.status===201)  {
       login(response.token); 
-      // alert("Registration successful");
-      router.push('/login');
-    
+      alert('Registration successful! A confirmation email has been sent to your inbox.');
+      router.push('/login'); 
     } else {
       alert('Registration failed. Please try again.');
     }
